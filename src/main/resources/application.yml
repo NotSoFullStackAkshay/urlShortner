@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: url-shortener
+  datasource:
+    url: jdbc:h2:file:./data/urlshortener
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+server:
+  port: 8080
+  forward-headers-strategy: framework   # correct short URLs behind a reverse proxy
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+app:
+  code-length: 7
